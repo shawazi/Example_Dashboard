@@ -1,0 +1,22 @@
+[
+    {
+        "icon": "bx bx-error",
+        "content": "Houve um error ao tentar salvar o novo produto."
+    },
+    {
+        "icon": "bx bx-package",
+        "content": "Produtos pedidos, encaminhar para transportadora."
+    },
+    {
+        "icon": "bx bx-cart",
+        "content": "Produtos entregues, finalizar pedido."
+    },
+    {
+        "icon": "bx bx-error",
+        "content": "Ocorreu um erro ao salvar as alterações do desconto, tente novamente."
+    },
+    {
+        "icon": "bx bx-cart",
+        "content": "Pedido finalizado com sucesso."
+    }
+]
