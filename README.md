@@ -2,8 +2,8 @@ Using yarn, but you may need to follow one of the top answers here: https://stac
 
 Some high severity vulnerabilities (6 after audit fix) that can be addressed at a later date.
 
-'''
+```
 yarn
 export NODE_OPTIONS=--openssl-legacy-provider
 yarn start
-'''
+```
