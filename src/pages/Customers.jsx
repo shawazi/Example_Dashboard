@@ -6,12 +6,12 @@ import customerList from "../assets/JsonData/customers-list.json";
 
 const customerTableHead = [
   "",
-  "Nome",
+  "Name",
   "E-mail",
-  "Telefone",
-  "Pedidos totais",
-  "Gasto total",
-  "Localização",
+  "Telephone",
+  "Total Orders",
+  "Total Expenses",
+  "Location",
 ];
 
 const renderHead = (item, index) => <th key={index}>{item}</th>;

@@ -24,31 +24,31 @@ const mode_settings = [
 const color_settings = [
   {
     id: "blue",
-    name: "Azul",
+    name: "Blue",
     background: "blue-color",
     class: "theme-color-blue",
   },
   {
     id: "red",
-    name: "Vermelho",
+    name: "Red",
     background: "red-color",
     class: "theme-color-red",
   },
   {
     id: "cyan",
-    name: "Ciano",
+    name: "Cyan",
     background: "cyan-color",
     class: "theme-color-cyan",
   },
   {
     id: "green",
-    name: "Verde",
+    name: "Green",
     background: "green-color",
     class: "theme-color-green",
   },
   {
     id: "orange",
-    name: "Laranja",
+    name: "Orange",
     background: "orange-color",
     class: "theme-color-orange",
   },
@@ -120,19 +120,18 @@ const ThemeMenu = () => {
         <i className="bx bx-palette"></i>
       </button>
       <div ref={menu_ref} className="theme-menu">
-        <h4>Configurações do tema</h4>
+        <h4>Theme Settings</h4>
         <button className="theme-menu__close" onClick={() => closeMenu()}>
           <i className="bx bx-x"></i>
         </button>
         <div className="theme-menu__select">
-          <span>Escolha o modo</span>
+          <span>Choose brightness</span>
           <ul className="mode-list">
             {mode_settings.map((item, index) => (
               <li key={index} onClick={() => setMode(item)}>
                 <div
-                  className={`mode-list__color ${item.background} ${
-                    item.id === currMode ? "active" : ""
-                  }`}
+                  className={`mode-list__color ${item.background} ${item.id === currMode ? "active" : ""
+                    }`}
                 >
                   <i className="bx bx-check"></i>
                 </div>
@@ -142,14 +141,13 @@ const ThemeMenu = () => {
           </ul>
         </div>
         <div className="theme-menu__select">
-          <span>Escolha a cor</span>
+          <span>Choose color</span>
           <ul className="mode-list">
             {color_settings.map((item, index) => (
               <li key={index} onClick={() => setColor(item)}>
                 <div
-                  className={`mode-list__color ${item.background} ${
-                    item.id === currColor ? "active" : ""
-                  }`}
+                  className={`mode-list__color ${item.background} ${item.id === currColor ? "active" : ""
+                    }`}
                 >
                   <i className="bx bx-check"></i>
                 </div>

@@ -8,6 +8,9 @@ import logo from "../../assets/images/favicon.png";
 
 import sidebar_items from "../../assets/JsonData/sidebar_routes.json";
 
+import { useNavigate, useLocation } from "react-router-dom";
+
+
 const SidebarItem = (props) => {
   const active = props.active ? "active" : "";
 
@@ -21,9 +24,12 @@ const SidebarItem = (props) => {
   );
 };
 
-const Sidebar = (props) => {
+const Sidebar = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const activeItem = sidebar_items.findIndex(
-    (item) => item.route === props.location.pathname
+    (item) => item.route === location.pathname
   );
 
   return (

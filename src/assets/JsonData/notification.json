@@ -1,22 +1,22 @@
 [
     {
         "icon": "bx bx-error",
-        "content": "Houve um error ao tentar salvar o novo produto."
+        "content": "There was an error when trying to save the new product."
     },
     {
         "icon": "bx bx-package",
-        "content": "Produtos pedidos, encaminhar para transportadora."
+        "content": "Ordered products, forward to carrier."
     },
     {
         "icon": "bx bx-cart",
-        "content": "Produtos entregues, finalizar pedido."
+        "content": "Products delivered, finalize order."
     },
     {
         "icon": "bx bx-error",
-        "content": "Ocorreu um erro ao salvar as alterações do desconto, tente novamente."
+        "content": "An error occurred while saving your discount changes, please try again."
     },
     {
         "icon": "bx bx-cart",
-        "content": "Pedido finalizado com sucesso."
+        "content": "Order completed successfully."
     }
 ]

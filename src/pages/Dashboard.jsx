@@ -17,12 +17,12 @@ import statusCards from "../assets/JsonData/status-card-data.json";
 const chartOptions = {
   series: [
     {
-      name: "Clientes Online",
+      name: "Online Customers",
       data: [40, 70, 20, 90, 36, 80, 30, 91, 60],
     },
     {
-      name: "Clientes da loja",
-      data: [40, 30, 70, 80, 40, 16, 40, 20, 51, 10],
+      name: "Total Customers",
+      data: [40, 30, 70, 80, 40, 16, 40, 45, 51, 60],
     },
   ],
   options: {
@@ -39,17 +39,17 @@ const chartOptions = {
     xaxis: {
       categories: [
         "Jan",
-        "Fev",
+        "Feb",
         "Mar",
-        "Abr",
-        "Mai",
+        "Apr",
+        "May",
         "Jun",
         "Jul",
-        "Ago",
-        "Set",
-        "Out",
+        "Aug",
+        "Sep",
+        "Oct",
         "Nov",
-        "Dez",
+        "Dec",
       ],
     },
     legend: {
@@ -62,32 +62,32 @@ const chartOptions = {
 };
 
 const topCustomers = {
-  head: ["Usuário", "Pedidos Totais", "Gasto Total"],
+  head: ["User", "Total Orders", "Total Expenses"],
   body: [
     {
       username: "john doe",
       order: "490",
-      price: "R$15.870,00",
+      price: "$15,870.00",
     },
     {
       username: "frank iva",
       order: "250",
-      price: "R$12.251,00",
+      price: "$12,251.00",
     },
     {
       username: "anthony baker",
       order: "120",
-      price: "R$10.840,00",
+      price: "$10,840.00",
     },
     {
       username: "frank iva",
       order: "110",
-      price: "R$9.251,00",
+      price: "$9,251.00",
     },
     {
       username: "anthony baker",
       order: "80",
-      price: "R$8.840,00",
+      price: "$8.840,00",
     },
   ],
 };
@@ -103,42 +103,42 @@ const renderCusomerBody = (item, index) => (
 );
 
 const latestOrders = {
-  header: ["ID do pedido", "usuário", "preço total", "data", "status"],
+  header: ["Order ID", "User", "Total Price", "Data", "Status"],
   body: [
     {
       id: "#OD1711",
       user: "john doe",
       date: "17 Jun 2021",
-      price: "RR$900",
-      status: "Enviado",
+      price: "$900",
+      status: "Sent",
     },
     {
       id: "#OD1712",
       user: "frank iva",
       date: "1 Jun 2021",
-      price: "R$400",
-      status: "Pagado",
+      price: "$400",
+      status: "Paid",
     },
     {
       id: "#OD1713",
       user: "anthony baker",
       date: "27 Jun 2021",
-      price: "R$200",
-      status: "Pendente",
+      price: "$200",
+      status: "Pending",
     },
     {
       id: "#OD1712",
       user: "frank iva",
       date: "1 Jun 2021",
-      price: "R$400",
-      status: "Pagado",
+      price: "$400",
+      status: "Paid",
     },
     {
       id: "#OD1713",
       user: "anthony baker",
       date: "27 Jun 2021",
-      price: "R$200",
-      status: "Reembolso",
+      price: "$200",
+      status: "Reimbursed",
     },
   ],
 };
@@ -169,7 +169,7 @@ const Dashboard = () => {
 
   return (
     <div>
-      <h2 className="page-header">Painel</h2>
+      <h2 className="page-header">Statistics</h2>
       <div className="row">
         <div className="col-6">
           <div className="row">
@@ -191,13 +191,13 @@ const Dashboard = () => {
               options={
                 themeReducer === "theme-mode-dark"
                   ? {
-                      ...chartOptions.options,
-                      theme: { mode: "dark" },
-                    }
+                    ...chartOptions.options,
+                    theme: { mode: "dark" },
+                  }
                   : {
-                      ...chartOptions.options,
-                      theme: { mode: "light" },
-                    }
+                    ...chartOptions.options,
+                    theme: { mode: "light" },
+                  }
               }
               series={chartOptions.series}
               type="line"
@@ -208,7 +208,7 @@ const Dashboard = () => {
         <div className="col-4">
           <div className="card">
             <div className="card__header">
-              <h3>Principais Clientes</h3>
+              <h3>Primary Clients</h3>
             </div>
             <div className="card__body">
               <Table
@@ -219,14 +219,14 @@ const Dashboard = () => {
               />
             </div>
             <div className="card__footer">
-              <Link to="/">Ver tudo</Link>
+              <Link to="/">See all</Link>
             </div>
           </div>
         </div>
         <div className="col-8">
           <div className="card">
             <div className="card__header">
-              <h3>Últimos pedidos</h3>
+              <h3>Latest orders</h3>
             </div>
             <div className="card__body">
               <Table
@@ -237,7 +237,7 @@ const Dashboard = () => {
               />
             </div>
             <div className="card__footer">
-              <Link to="/">Ver tudo</Link>
+              <Link to="/">See all</Link>
             </div>
           </div>
         </div>

@@ -15,7 +15,7 @@ import user_image from "../../assets/images/junior.jpg";
 import user_menu from "../../assets/JsonData/user_menus.json";
 
 const curr_user = {
-  display_name: "Junior Martins",
+  display_name: "Jason Bourne",
   image: user_image,
 };
 
@@ -50,7 +50,7 @@ const Topnav = () => {
       <div className="topnav__search">
         <input
           type="text"
-          placeholder="Procure aqui..."
+          placeholder="Search here..."
         />
         <i className="bx bx-search"></i>
       </div>
@@ -69,7 +69,7 @@ const Topnav = () => {
             badge="12"
             contentData={notifications}
             renderItems={(item, index) => renderNotificationItem(item, index)}
-            renderFooter={() => <Link to="/">Ver tudo</Link>}
+            renderFooter={() => <Link to="/">See all</Link>}
           />
           {/* dropdown here */}
         </div>
