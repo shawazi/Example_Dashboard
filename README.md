@@ -4,6 +4,5 @@ Some high severity vulnerabilities (6 after audit fix) that can be addressed at 
 
 ```
 yarn
-export NODE_OPTIONS=--openssl-legacy-provider
 yarn start
 ```
