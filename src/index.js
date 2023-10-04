@@ -8,6 +8,8 @@ import './assets/css/theme.css'
 import './assets/css/index.css'
 import Layout from './components/layout/Layout'
 import { createRoot } from 'react-dom/client';
+import { ChakraProvider } from "@chakra-ui/react";
+
 
 const domNode = document.getElementById('root');
 const root = createRoot(domNode);
@@ -21,7 +23,9 @@ document.title = 'Sales Dashboard'
 root.render(
   <Provider store={store}>
     <React.StrictMode>
-      <Layout />
+      <ChakraProvider>
+        <Layout />
+      </ChakraProvider>
     </React.StrictMode>
   </Provider>,
 );

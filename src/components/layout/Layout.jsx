@@ -4,8 +4,8 @@ import Sidebar from "../sidebar/Sidebar";
 import TopNav from "../topnav/TopNav";
 import Dashboard from "../../pages/Dashboard";
 import Customers from "../../pages/Customers";
-
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Products from "../../pages/Products";
+import { BrowserRouter, Route, Routes, Outlet } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import ThemeAction from "../../redux/actions/ThemeAction";
 
@@ -23,28 +23,19 @@ const Layout = () => {
 
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/*">
-          <Route
-            index
-            element={
-              <div className={`layout ${themeReducer.mode} ${themeReducer.color}`}>
-                <Routes>
-                  <Route index element={<Sidebar />} />
-                </Routes>
-                <div className="layout__content">
-                  <TopNav />
-                  <Routes>
-                    <Route path="/" element={<Dashboard />} />
-                    <Route path="/customers" element={<Customers />} />
-                  </Routes>
-                </div>
-              </div>
-            }
-          />
-        </Route>
-      </Routes>
-
+      <div className={`layout ${themeReducer.mode} ${themeReducer.color}`}>
+        <Sidebar />
+        <div className="layout__content">
+          <TopNav />
+          <Routes>
+            <Route path="/" element={<Outlet />}>
+              <Route index element={<Dashboard />} />
+            </Route>
+            <Route path="/customers" element={<Customers />} />
+            <Route path="/products" element={<Products />} />
+          </Routes>
+        </div>
+      </div>
     </BrowserRouter>
   );
 };

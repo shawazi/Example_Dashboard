@@ -208,7 +208,7 @@ const Dashboard = () => {
         <div className="col-4">
           <div className="card">
             <div className="card__header">
-              <h3>Primary Clients</h3>
+              <h3>Primary Customers</h3>
             </div>
             <div className="card__body">
               <Table
