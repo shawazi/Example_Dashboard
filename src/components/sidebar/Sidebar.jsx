@@ -25,6 +25,7 @@ const SidebarItem = (props) => {
 };
 
 const Sidebar = () => {
+  // eslint-disable-next-line
   const navigate = useNavigate();
   const location = useLocation();
 
