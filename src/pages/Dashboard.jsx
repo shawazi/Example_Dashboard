@@ -13,6 +13,7 @@ import Table from "../components/table/Table";
 import Badge from "../components/badge/Badge";
 
 import statusCards from "../assets/JsonData/status-card-data.json";
+import { Box, Center } from "@chakra-ui/react";
 
 const chartOptions = {
   series: [
@@ -168,81 +169,93 @@ const Dashboard = () => {
   const themeReducer = useSelector((state) => state.ThemeReducer.mode);
 
   return (
-    <div>
-      <h2 className="page-header">Statistics</h2>
-      <div className="row">
-        <div className="col-6">
+    <>
+       <Box w="100%" px=".5em">
+        <div px="1em">
+          <Center>
+            <h2 className="page-header">Statistics</h2>
+          </Center>
+
           <div className="row">
-            {statusCards.map((item, index) => (
-              <div className="col-6" key={index}>
-                <StatusCard
-                  icon={item.icon}
-                  count={item.count}
-                  title={item.title}
+            <div className="col-6">
+              <div className="row">
+                {statusCards.map((item, index) => (
+                  <div className="col-6" key={index}>
+                    <StatusCard
+                      icon={item.icon}
+                      count={item.count}
+                      title={item.title}
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="col-6">
+              <div className="card full-height">
+                {}
+                <Chart
+                  options={
+                    themeReducer === "theme-mode-dark"
+                      ? {
+                          ...chartOptions.options,
+                          theme: {
+                            mode: "dark",
+                          },
+                        }
+                      : {
+                          ...chartOptions.options,
+                          theme: {
+                            mode: "light",
+                          },
+                        }
+                  }
+                  series={chartOptions.series}
+                  type="line"
+                  height="100%"
                 />
               </div>
-            ))}
-          </div>
-        </div>
-        <div className="col-6">
-          <div className="card full-height">
-            {/* chart */}
-            <Chart
-              options={
-                themeReducer === "theme-mode-dark"
-                  ? {
-                    ...chartOptions.options,
-                    theme: { mode: "dark" },
-                  }
-                  : {
-                    ...chartOptions.options,
-                    theme: { mode: "light" },
-                  }
-              }
-              series={chartOptions.series}
-              type="line"
-              height="100%"
-            />
-          </div>
-        </div>
-        <div className="col-4">
-          <div className="card">
-            <div className="card__header">
-              <h3>Primary Customers</h3>
             </div>
-            <div className="card__body">
-              <Table
-                headData={topCustomers.head}
-                renderHead={(item, index) => renderCusomerHead(item, index)}
-                bodyData={topCustomers.body}
-                renderBody={(item, index) => renderCusomerBody(item, index)}
-              />
+            <div className="col-4">
+              <div className="card">
+                <div className="card__header">
+                  <h3>Primary Customers</h3>
+                </div>
+                <div className="card__body">
+                  <Table
+                    headData={topCustomers.head}
+                    renderHead={(item, index) => renderCusomerHead(item, index)}
+                    bodyData={topCustomers.body}
+                    renderBody={(item, index) => renderCusomerBody(item, index)}
+                  />
+                </div>
+                <div className="card__footer">
+                  <Link to="/">See all</Link>
+                </div>
+              </div>
             </div>
-            <div className="card__footer">
-              <Link to="/">See all</Link>
+            <div className="col-8">
+              <div className="card">
+                <div className="card__header">
+                  <h3>Latest orders</h3>
+                </div>
+                <div className="card__body">
+                  <Table
+                    headData={latestOrders.header}
+                    renderHead={(item, index) => renderOrderHead(item, index)}
+                    bodyData={latestOrders.body}
+                    renderBody={(item, index) => renderOrderBody(item, index)}
+                  />
+                </div>
+                <div className="card__footer">
+                  <Link to="/">See all</Link>
+                </div>
+              </div>
             </div>
           </div>
+          <Box w="100%" />
         </div>
-        <div className="col-8">
-          <div className="card">
-            <div className="card__header">
-              <h3>Latest orders</h3>
-            </div>
-            <div className="card__body">
-              <Table
-                headData={latestOrders.header}
-                renderHead={(item, index) => renderOrderHead(item, index)}
-                bodyData={latestOrders.body}
-                renderBody={(item, index) => renderOrderBody(item, index)}
-              />
-            </div>
-            <div className="card__footer">
-              <Link to="/">See all</Link>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+      </Box>
+    </>
   );
 };
 
