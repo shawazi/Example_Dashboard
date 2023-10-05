@@ -1,3 +1,4 @@
+
 import React from "react";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
@@ -9,7 +10,6 @@ import './assets/css/index.css'
 import Layout from './components/layout/Layout'
 import { createRoot } from 'react-dom/client';
 import { ChakraProvider } from "@chakra-ui/react";
-
 
 const domNode = document.getElementById('root');
 const root = createRoot(domNode);
